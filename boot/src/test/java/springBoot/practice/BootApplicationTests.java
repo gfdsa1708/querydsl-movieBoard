@@ -17,6 +17,7 @@ import com.querydsl.jpa.impl.*;
 
 import springBoot.practice.entity.*;
 import springBoot.practice.repository.*;
+import springBoot.practice.service.FilmService;
 
 @DataJpaTest
 @Transactional
@@ -28,11 +29,12 @@ class BootApplicationTests {
 	
 	@Autowired
 	EntityManager em;
+	
 	//@Test
 	void contextLoads() {
 	}
 	
-	@Test
+	//@Test
 	void findAll() {
 		JPAQueryFactory query = new JPAQueryFactory(em);
 		QActor actor = QActor.actor;
@@ -48,5 +50,14 @@ class BootApplicationTests {
 							.where(actor.actorId.eq(1)).fetch();
 		assertThat(result.size()).isEqualTo(20);
 		
+	}
+	
+	@Test
+	void filmListTest() {
+		JPAQueryFactory query = new JPAQueryFactory(em);
+		QFilm film = QFilm.film;
+		List<Film> filmList = query.selectFrom(film).fetch();
+		System.out.println(filmList);
+		assertThat(filmList.size()).isEqualTo(100);
 	}
 }

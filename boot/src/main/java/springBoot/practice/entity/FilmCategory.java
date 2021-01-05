@@ -7,8 +7,7 @@ import javax.persistence.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
+@Data
 public class FilmCategory {
 	@Id
 	@GeneratedValue

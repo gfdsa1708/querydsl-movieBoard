@@ -7,14 +7,13 @@ import javax.persistence.*;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
+@Data
 public class Film {
 	@Id
 	@GeneratedValue
 	private Integer filmId;
 	
-	private String titie;
+	private String title;
 	private String description;
 	private LocalDateTime lastUpdate;
 	private int length;
