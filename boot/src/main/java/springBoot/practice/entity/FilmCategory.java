@@ -16,4 +16,5 @@ public class FilmCategory {
 	
 	private Integer categoryId;
 	private LocalDateTime lastUpdate;
+	//test
 }
